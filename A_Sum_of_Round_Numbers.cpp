@@ -13,24 +13,27 @@ using namespace std;
 #define S second
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    string str;
+    cin >> str;
+    int n = str.length();
+    int t = n - 1;
+    if (str[n - 1] == 0)
     {
-        cin >> arr[i];
+        cout << 1 << endl;
+        cout << str << endl;
     }
-    sort(arr, arr + n);
-    int cnt = 0;
-    for (int i = 0; i < n - 1; i++)
+    /* else
     {
-        if (abs(arr[i] - arr[i + 1]) > 1)
-            cnt++;
-    }
-    if (cnt >= 1)
-        cout << "NO" << endl;
-    else
-        cout << "YES" << endl;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (str[i] == 0)
+                continue;
+            else
+                cout << str[i];
+        }
+        cout << endl;
+    } */
+    cout << str[n - 1] << endl;
 }
 int32_t main()
 {

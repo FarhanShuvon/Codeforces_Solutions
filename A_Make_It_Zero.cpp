@@ -1,6 +1,6 @@
-/* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-        Farhan Israk Shuvon
-Leading Uninversity,Sylhet*/
+//                                                  بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+//                                                    Farhan Israk Shuvon
+//                                                 Leading Uninversity,Sylhet
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,17 +20,8 @@ void solve()
     {
         cin >> arr[i];
     }
-    sort(arr, arr + n);
-    int cnt = 0;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (abs(arr[i] - arr[i + 1]) > 1)
-            cnt++;
-    }
-    if (cnt >= 1)
-        cout << "NO" << endl;
-    else
-        cout << "YES" << endl;
+    vector<pair<int,int>>v;
+    
 }
 int32_t main()
 {

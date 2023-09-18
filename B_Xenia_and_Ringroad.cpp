@@ -13,31 +13,34 @@ using namespace std;
 #define S second
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    int n, m;
+    cin >> n >> m;
+    int arr[m];
+    for (int i = 1; i <= m; i++)
     {
         cin >> arr[i];
     }
-    sort(arr, arr + n);
-    int cnt = 0;
-    for (int i = 0; i < n - 1; i++)
+    /* int r[n];
+    for (int i = 1; i <= n; i++)
     {
-        if (abs(arr[i] - arr[i + 1]) > 1)
-            cnt++;
+        r[i] = i;
+    } */
+    int ans = 0;
+    for (int i = 1; i <= m - 1; i++)
+    {
+        if (arr[i + 1] >= arr[i])
+            ans = ans + arr[i + 1] - arr[i];
+        else
+            ans = ans + (n - arr[i] + arr[i + 1]);
     }
-    if (cnt >= 1)
-        cout << "NO" << endl;
-    else
-        cout << "YES" << endl;
+    cout << ans + arr[1] - 1 << endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
+    int t = 1;
+    // cin >> t;
     while (t--)
     {
         solve();
