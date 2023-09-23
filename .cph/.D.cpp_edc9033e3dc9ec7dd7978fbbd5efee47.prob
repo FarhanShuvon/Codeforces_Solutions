@@ -1,0 +1,1 @@
+{"name":"Local: D","url":"d:\\Vs code new\\D.cpp","tests":[{"id":1693545811604,"input":"6 5\n0 0 0 0 0 0","output":"2"},{"id":1693545850751,"input":"6 4\n0 1 2 3 4 5","output":"0"},{"id":1693545856397,"input":"5 2\n0 4 5 1 0","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Vs code new\\D.cpp","group":"local","local":true}
