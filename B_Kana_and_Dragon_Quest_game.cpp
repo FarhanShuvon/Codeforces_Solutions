@@ -24,7 +24,25 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int h, a, b;
+    cin >> h >> a >> b;
+    int light = b * 10;
+    if (h <= (b * 10))
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        while (a--)
+        {
+            h = (h / 2) + 10;
+        }
+        h = h - light;
+        if (h <= 0)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
 }
 int32_t main()
 {
@@ -32,23 +50,9 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

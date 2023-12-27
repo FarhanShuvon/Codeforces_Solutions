@@ -24,31 +24,38 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int a, b, c;
+    cin >> a >> b >> c;
+    vector<int> v;
+    v.pb(a);
+    v.pb(b);
+    v.pb(c);
+    int mx = max(max(a, b), c);
+    int mn = min(min(a, b), c);
+    if ((b + c) % 2 == 0)
+        cout << 1 << " ";
+    else
+        cout << 0 << " ";
+    if ((a + c) % 2 == 0)
+        cout
+            << 1 << " ";
+    else
+        cout << 0 << " ";
+    if ((a + b) % 2 == 0)
+        cout << 1 << endl;
+    else
+        cout << 0 << endl;
 }
+
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

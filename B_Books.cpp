@@ -24,30 +24,40 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n;
-    cin >> n;
-    string str;
-    str = to_string(n);
-    bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
-    else
+    int a, b;
+    cin >> a >> b;
+    int arr[a];
+    for (int i = 0; i < a; i++)
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
-        }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        cin >> arr[i];
     }
+    // sort(arr, arr + a);
+    int cnt = 0;
+    int sum = 0;
+    int k=0;
+    map<int, int> mp;
+    /*  for (int i = 0; i < a; i++)
+     {
+         mp[arr[i]]++;
+     }
+     for(auto it:mp)
+     {
+         cout<<it.F<<" "<<it.S<<endl;
+     } */
+    for (int i = 0; i < a; i++)
+    {
+        sum = sum + arr[i];
+        if (sum <= b)
+        {
+            k++;
+        }
+        else
+        {
+            sum = sum - arr[cnt];
+            cnt++;
+        }
+    }
+    cout << k << endl;
 }
 int32_t main()
 {

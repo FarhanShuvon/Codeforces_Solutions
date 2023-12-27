@@ -27,34 +27,41 @@ void solve()
     int n;
     cin >> n;
     string str;
-    str = to_string(n);
+    cin >> str;
+    int cnt1 = 0, cnt2 = 0;
     bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
+    for (int i = 0; i < n ; i++)
+    {
+        if (str[i] == '0')
+            cnt1++;
+        else
+            cnt2++;
+    }
+    if (cnt1 > cnt2)
         cout << "YES" << endl;
+    // bool ans=false;
     else
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
+        for (int i = 0; i < n - 1; i++)
         {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
+            if (str[i] != str[i + 1])
+            {
+                ans = true;
+                break;
+            }
         }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
+        if (ans)
             cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    // cin >> t;
+    int t;
+    cin >> t;
     while (t--)
     {
         solve();

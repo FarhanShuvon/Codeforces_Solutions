@@ -26,35 +26,47 @@ void solve()
 {
     int n;
     cin >> n;
-    string str;
-    str = to_string(n);
-    bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
+    int arr[n];
+    int p = 0, m = 0, z = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] < 0)
+            m++;
+        else if (arr[i] > 0)
+            p++;
+        else if (arr[i] == 0)
+            z++;
+    }
+    int k = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] < 0)
+        {
+            k = i;
+            k++;
+            break;
+        }
+    }
+    if (z > 0)
+        cout << 0 << endl;
+    else if (m % 2 != 0)
+        cout << 0 << endl;
     else
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
-        }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        cout << 1 << endl;
+        cout << 1 << " " << 0 << endl;
     }
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    // cin >> t;
+    int t;
+    cin >> t;
     while (t--)
     {
         solve();

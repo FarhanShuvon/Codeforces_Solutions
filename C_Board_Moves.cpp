@@ -24,31 +24,26 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int n;
+    cin >> n;
+    int sum = 0;
+    int ver = 8;
+    for (int i = 1; i <= (n / 2); i++)
+    {
+        sum = sum + i * ver;
+        ver = ver + 8;
+    }
+    cout << sum << endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    int t = 1;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

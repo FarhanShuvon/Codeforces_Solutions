@@ -1,0 +1,1 @@
+{"name":"Local: ICPC Preli G","url":"d:\\cf_solution\\ICPC Preli G.cpp","tests":[{"id":1697462808418,"input":"3\n123011121\nW1W\n111W11\n","output":"1.3 Overs 12 Runs 0 Wicket.\n0.3 Over 1 Run 2 Wickets.\n1.0 Over 5 Runs 1 Wicket.\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\cf_solution\\ICPC Preli G.cpp","group":"local","local":true}

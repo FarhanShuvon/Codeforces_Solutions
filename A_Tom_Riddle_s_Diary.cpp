@@ -22,9 +22,21 @@ int lcm(int a, int b)
 {
     return a * (b / (gcd(a, b)));
 }
+map<string, int> mp;
+vector<string> v;
 void solve()
 {
-    // its time for main function to work
+    string str;
+    cin >> str;
+    // v.pb(str);
+    int n = v.size();
+    bool ans = false;
+    int k = 0;
+    if (mp[str] == 0)
+        cout << "NO" << endl;
+    else
+        cout << "YES" << endl;
+    mp[str]++;
 }
 int32_t main()
 {
@@ -32,23 +44,10 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
+        solve();
     }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
-    }
+
     return 0;
 }

@@ -24,38 +24,36 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
+    string str1 = "qwertyuiopasdfghjkl;zxcvbnm,./";
     string str;
-    str = to_string(n);
-    bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
-    else
+    cin >> str;
+    for (int i = 0; i < str.length(); i++)
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
+        for (int j = 0; j < str1.length(); j++)
         {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
+            if (s == "R")
+            {
+                if (str[i] == str1[j])
+                    cout << str1[j - 1];
+            }
+            else if (s == "L")
+            {
+                if (str[i] == str1[j])
+                    cout << str1[j + 1];
+            }
         }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
     }
+    cout << endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    // cin >> t;
-    while (t--)
+    // int t;
+    // cin >> t = 1;
+    // while(t--)
     {
         solve();
     }

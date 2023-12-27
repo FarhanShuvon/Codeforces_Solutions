@@ -24,7 +24,32 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int n;
+    cin >> n;
+    vector<pair<int, string>> v;
+    for (int i = 0; i < n; i++)
+    {
+        int m;
+        string str;
+        cin >> m;
+        cin >> str;
+        v.pb(mk(m, str));
+    }
+    vector<int> v1;
+    vector<int> v2;
+    vector<int> v3;
+    for (auto &it : v)
+    {
+        if (it.S == "01")
+            v1.pb(it.F);
+        else if (it.S == "10")
+            v2.pb(it.F);
+        else if (it.S == "11")
+            v3.pb(it.F);
+    }
+    int s1 = v1.size();
+    int s2 = v2.size();
+    int s3 = v3.size();
 }
 int32_t main()
 {
@@ -32,23 +57,9 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

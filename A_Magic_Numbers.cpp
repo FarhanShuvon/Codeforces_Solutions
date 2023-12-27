@@ -24,37 +24,37 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n;
-    cin >> n;
     string str;
-    str = to_string(n);
+    cin >> str;
     bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
+    // bool ans = false;
+    int n = str.length();
+    if (str[0] != '1'||str[0]=='4')
+        ans = true;
     else
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
+        for (int i = 0; i < n; i++)
         {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
+            if (str[i] != '1' && str[i] != '4')
+                ans = true;
         }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        for (int i = 0; i < n - 2; i++)
+        {
+            if (str[i] == '4' && str[i + 1] == '4' && str[i + 2] == '4')
+                ans = true;
+        }
     }
+    if (ans)
+        cout << "NO" << endl;
+    else
+        cout << "YES" << endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
-    // cin >> t;
+    //  cin >> t;
     while (t--)
     {
         solve();

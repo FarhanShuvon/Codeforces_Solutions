@@ -24,7 +24,29 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    int curr = 0;
+    int ans = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        if (i > 0 && (abs(arr[i - 1] % 2 == 0) == abs(arr[i] % 2 == 0)))
+        {
+            curr = arr[i];
+            ans = max(ans, curr);
+        }
+        else
+        {
+            curr = max(arr[i], curr + arr[i]);
+            ans = max(ans, curr);
+        }
+    }
+    cout << ans << endl;
 }
 int32_t main()
 {
@@ -32,23 +54,9 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

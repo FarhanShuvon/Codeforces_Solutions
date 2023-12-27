@@ -24,31 +24,35 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int t;
+    cin >> t;
+    int k = 1;
+    while (t--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        int ans = a + b + c;
+        if (ans > 9 || ans < 6 || a == 5 || b == 5 || c == 5 || a < 0 || b < 0 || c < 0)
+        {
+            cout << "Case " << k << ": invalidum" << endl;
+            k++;
+        }
+        else
+        {
+            cout << "Case " << k << ": perfectus" << endl;
+            k++;
+        }
+    }
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    /* int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while(t--) */
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

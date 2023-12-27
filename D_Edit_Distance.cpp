@@ -14,41 +14,27 @@ using namespace std;
 //((x/gcd(x, y))*y)
 #define F first
 #define S second
-int gcd(int a, int b)
+int gcd(int a,int b)
 {
-    return __gcd(a, b);
+return __gcd(a,b);
 }
-int lcm(int a, int b)
+int lcm(int a,int b)
 {
-    return a * (b / (gcd(a, b)));
+return a*(b/(gcd(a,b)));
 }
 void solve()
 {
-    // its time for main function to work
+
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    int t; 
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while(t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

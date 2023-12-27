@@ -24,37 +24,39 @@ int lcm(int a, int b)
 }
 void solve()
 {
+    char a;
     int n;
-    cin >> n;
-    string str;
-    str = to_string(n);
-    bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
-    else
+    cin >> a >> n;
+    char arr[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+    int k = 8;
+    vector<pair<char, int>> v;
+    for (int i = 0; i < 8; i++)
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
-        }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        v.pb(mk(arr[i], k));
+        k--;
     }
+    /*  for (int i = 0; i < 8; i++)
+     {
+         cout << v[i].F<< v[i].S << endl;
+     } */
+    for (int i = 1; i <= 8; i++)
+    {
+        if (i != n)
+            cout << a << i << endl;
+    }
+    for (int i = 0; i < 8; i++)
+    {
+        if (arr[i] != a)
+            cout << arr[i] << n << endl;
+    }
+    cout << endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    // cin >> t;
+    int t;
+    cin >> t;
     while (t--)
     {
         solve();

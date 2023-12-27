@@ -22,9 +22,32 @@ int lcm(int a, int b)
 {
     return a * (b / (gcd(a, b)));
 }
+int sum(int a)
+{
+    string str = to_string(a);
+    int k = str.length();
+    int n = 0;
+    for (int i = 0; i < k; i++)
+    {
+        n = n + (str[i] - '0');
+    }
+}
 void solve()
 {
-    // its time for main function to work
+    int a, b;
+    cin >> a >> b;
+    string str = to_string(a);
+  //  int sum = 0;
+    if (a % b == 0)
+        cout << a << endl;
+    else
+    {
+        while (a%b==0)
+        {
+            a++;
+        }
+        cout<<a<<endl;
+    }
 }
 int32_t main()
 {
@@ -32,23 +55,9 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }

@@ -24,29 +24,36 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n;
-    cin >> n;
-    string str;
-    str = to_string(n);
-    bool ans = false;
-    if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 744 == 0)
-        cout << "YES" << endl;
+    int a, b;
+    cin >> a >> b;
+    vector<int> v;
+    if (b == 10)
+    {
+        if (a == 1)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            for (int i = 0; i < a - 1; i++)
+            {
+                v.pb(1);
+            }
+            v.pb(0);
+            for (int i = 0; i < v.size(); i++)
+            {
+                cout << v[i];
+            }
+            cout << endl;
+        }
+    }
     else
     {
-        int cnt1 = 0, cnt2 = 0;
-        for (int i = 0; i < str.length(); i++)
+        while (a--)
         {
-            if (str[i] == '4')
-                cnt1++;
-            else if (str[i] == '7')
-                cnt2++;
+            cout << b;
         }
-        // int t=str.length();
-        int sum = cnt1 + cnt2;
-        if (sum != str.length())
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        cout << endl;
     }
 }
 int32_t main()

@@ -24,7 +24,27 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    // its time for main function to work
+    int n;
+    cin >> n;
+    string str;
+    cin >> str;
+    int cnt = 0;
+    for (int i = 0; i < n-1; i++)
+    {
+        for (int j = 0; j < n-1; j++)
+        {
+            if (str[i] > str[i + 1])
+            {
+                swap(str[i], str[i + 1]);
+                cnt++;
+            }
+        }
+    }
+    cout<<str<<endl;
+    if (cnt < n)
+        cout << cnt << endl;
+    else
+        cout << -1 << endl;
 }
 int32_t main()
 {
@@ -32,23 +52,9 @@ int32_t main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    map<string, int> mp;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        string str;
-        cin >> str;
-        mp[str]++;
-    }
-    int mx = 0;
-    for (auto &it : mp)
-    {
-        if (it.S > mx)
-            mx = it.S;
-    }
-    for (auto &it : mp)
-    {
-        if (mx == it.S)
-            cout << it.F << endl;
+        solve();
     }
     return 0;
 }
