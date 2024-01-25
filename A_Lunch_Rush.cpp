@@ -24,24 +24,44 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    int n, k;
+    cin >> n >> k;
+    vector<pair<int, int>> v;
+    for (int i = 0; i < n; i++)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        int a, b;
+        cin >> a >> b;
+        v.pb(mk(a, b));
     }
-    cout << endl;
+    int ans = 0;
+    vector<int> v1;
+    for (auto it : v)
+    {
+        if (it.second > k)
+        {
+            ans = it.first - (it.second - k);
+        }
+        else
+        {
+            ans = it.first;
+        }
+        v1.pb(ans);
+    }
+    int m = INT_MIN;
+    for (auto it : v1)
+    {
+        // cout<<it<<endl;
+        m = max(m, it);
+    }
+    cout << m << endl;
+    // cout<<ans<<endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
+    int t = 1;
+    //  cin >> t;
     while (t--)
     {
         solve();

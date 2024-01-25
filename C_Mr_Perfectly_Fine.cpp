@@ -26,30 +26,53 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<pair<int, string>> v;
-    for (int i = 0; i < n; i++)
+    int mn1 = INT_MAX;
+    int mn2 = INT_MAX;
+    int mn3 = INT_MAX;
+    int cn = 0, cnt = 0, c = 0;
+    while (n--)
     {
-        int m;
-        string str;
-        cin >> m;
-        cin >> str;
-        v.pb(mk(m, str));
+        int a;
+        string s;
+        cin >> a >> s;
+        if (s[0] == '1' && s[1] == '1')
+        {
+            mn1 = min(mn1, a);
+            c++;
+        }
+        else if (s[0] == '1' && s[1] == '0')
+        {
+            mn2 = min(mn2, a);
+            cn++;
+        }
+        else if (s[0] == '0' && s[1] == '1')
+        {
+            mn3 = min(mn3, a);
+            cnt++;
+        }
     }
-    vector<int> v1;
-    vector<int> v2;
-    vector<int> v3;
-    for (auto &it : v)
+    vector<int> v;
+    v.pb(c);
+    v.pb(cn);
+    v.pb(cnt);
+    int brk = 0;
+    for (auto it : v)
     {
-        if (it.S == "01")
-            v1.pb(it.F);
-        else if (it.S == "10")
-            v2.pb(it.F);
-        else if (it.S == "11")
-            v3.pb(it.F);
+        if (it == 0)
+            brk++;
     }
-    int s1 = v1.size();
-    int s2 = v2.size();
-    int s3 = v3.size();
+    if (c == 0)
+    {
+        if (brk >= 2)
+        {
+            cout << -1 << endl;
+            return;
+        }
+    }
+    if (mn1 < mn2 + mn3)
+        cout << mn1 << endl;
+    else
+        cout << mn2 + mn3 << endl;
 }
 int32_t main()
 {

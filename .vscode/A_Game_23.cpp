@@ -24,24 +24,31 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    int a, b;
+    cin >> a >> b;
+    bool ans = false;
+    int cnt=0;
+    if (b % a==0)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        int tem = b / a;
+        while(tem)
+        {
+            if(tem%2==0) tem=tem/2;
+            else if(tem%3==0) tem=tem/3;
+            else break;
+            cnt++;
+        }
+        if(tem==1)cout<<cnt<<endl;
+        else cout<<-1<<endl;
     }
-    cout << endl;
+    else cout<<-1<<endl;
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
+    int t = 1;
+    // cin >> t;
     while (t--)
     {
         solve();

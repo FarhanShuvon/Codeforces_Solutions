@@ -24,17 +24,16 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
-    {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
-    }
-    cout << endl;
+    int n, a, x;
+    cin >> n >> a >> x;
+    int extra = ((n - a) * (n - a + 1)) / 2;
+    int mx_sum = (n * (n + 1)) / 2 - extra;
+    int mn_sum = (a * (a + 1)) / 2;
+    
+    if (x <= mx_sum && x >= mn_sum)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
 }
 int32_t main()
 {

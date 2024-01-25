@@ -22,26 +22,34 @@ int lcm(int a, int b)
 {
     return a * (b / (gcd(a, b)));
 }
+int v[100005];
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    string str;
+    cin >> str;
+    int n;
+    cin >> n;
+    for (int i = 1; i < str.length(); i++)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        if (str[i - 1] == str[i])
+        {
+            v[i] = 1;
+        }
+        v[i] = v[i] + v[i - 1];
     }
-    cout << endl;
+    while (n--)
+    {
+        int l, r;
+        cin >> l >> r;
+        cout << abs(v[r - 1] - v[l - 1]) << endl;
+    }
 }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
+    int t = 1;
+    //  cin >> t;
     while (t--)
     {
         solve();

@@ -24,17 +24,25 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
-    {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
-    }
-    cout << endl;
+    int a, b, c;
+    cin >> a >> b >> c;
+    bool ans = false;
+    int one = b - (c - b);
+    //  cout<<one<<endl;
+    int two = a + (c - a) / 2;
+    //  cout<<two<<endl;
+    int three = b + (b - a);
+    // cout<<three<<endl;
+    if (one >= 1 && one % a == 0)
+        ans = true;
+    else if (three >= 1 && three % c == 0)
+        ans = true;
+    else if ((c - a) % 2 == 0 && two >= 1 && two % b == 0)
+        ans = true;
+    if (ans)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
 }
 int32_t main()
 {

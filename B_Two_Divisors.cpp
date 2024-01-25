@@ -24,17 +24,17 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    int a, b;
+    cin >> a >> b;
+    int sum = 0;
+    if (b % a == 0)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        sum = (b / a) * b;
     }
-    cout << endl;
+    else
+        sum = lcm(a, b);
+        
+    cout << sum << endl;
 }
 int32_t main()
 {

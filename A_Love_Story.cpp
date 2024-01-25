@@ -24,17 +24,16 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    string str;
+    cin >> str;
+    string ans = "codeforces";
+    int cnt = 0;
+    for (int i = 0; i < str.length(); i++)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        if (str[i] != ans[i])
+            cnt++;
     }
-    cout << endl;
+    cout << cnt << endl;
 }
 int32_t main()
 {

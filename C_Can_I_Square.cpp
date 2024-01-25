@@ -24,17 +24,22 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    int n;
+    cin >> n;
+    int arr[n];
+    int sum = 0;
+    for (int i = 0; i < n; i++)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        cin >> arr[i];
+        sum = sum + arr[i];
     }
-    cout << endl;
+    double number = (sqrt(sum));
+   // cout<<number<<endl;
+    if (number == std::floor(number)) {
+        std::cout << "YES" << std::endl;
+    } else {
+        std::cout << "NO" << std::endl;
+    }
 }
 int32_t main()
 {

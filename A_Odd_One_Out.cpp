@@ -24,17 +24,21 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, a, b, j;
-    cin >> n >> a >> b;
-    string str = "";
-    string str1 = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0, j = 0; j < n; i++, j++)
+    int arr[3];
+    for (int i = 0; i < 3; i++)
     {
-        if (i == b)
-            i = 0;
-        cout << str1[i];
+        cin >> arr[i];
     }
-    cout << endl;
+    map<int, int> mp;
+    for (int i = 0; i < 3; i++)
+    {
+        mp[arr[i]]++;
+    }
+    for (auto it : mp)
+    {
+        if (it.second == 1)
+            cout << it.first << endl;
+    }
 }
 int32_t main()
 {
