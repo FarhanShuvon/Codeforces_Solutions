@@ -24,22 +24,34 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    set<int> st;
-    int q = n / k;
-    for (int i = 1; i <= sqrt(n); i++)
+    int n;
+    cin >> n;
+    while (n--)
     {
-        if (n % i == 0)
+        string str;
+        cin >> str;
+        map<char, int> mp;
+        for (int i = 0; i < str.length(); i++)
         {
-            st.insert(i);
-            st.insert(n / i);
+            mp[str[i]]++;
         }
+        bool ans = true;
+        for (auto it : mp)
+            cout << it.second << " ";
+        cout << endl;
+        /* for (auto it : mp)
+        {
+            if (it.second >= 2)
+                ans = true;
+            else
+                false;
+        }
+        if (ans)
+            cout << 1;
+        else
+            cout << 0; */
     }
-    auto it = st.lower_bound((q));
-    if (*it > q)
-        *it--;
-    cout << *it << endl;
+    cout << endl;
 }
 int32_t main()
 {
