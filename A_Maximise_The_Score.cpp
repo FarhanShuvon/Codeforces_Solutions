@@ -33,6 +33,7 @@ void solve()
         cin >> arr[i];
     }
     int sum = 0;
+    sort(arr, arr + n);
     for (int i = 0; i < n;)
     {
         sum = sum + min(arr[i], arr[i + 1]);
