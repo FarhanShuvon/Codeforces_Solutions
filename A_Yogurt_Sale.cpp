@@ -24,26 +24,13 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    string str;
-    cin >> str;
-    map<char, int> mp;
-    for (int i = 0; i < str.length(); i++)
-    {
-        mp[str[i]]++;
-    }
-    int mx = 0;
-    for (auto it : mp)
-    {
-        if (it.second > mx)
-            mx = it.second;
-    }
-    for (auto it : mp)
-    {
-        if (mx == it.second)
-        {
-            cout << it.first << endl;
-        }
-    }
+    int n, a, b;
+    cin >> n >> a >> b;
+    int ans = n / 2;
+    int rem = n % 2;
+    int cnt1 = ans * b + a * rem;
+    int cnt2 = a * n;
+    cout << min(cnt1, cnt2) << endl;
 }
 int32_t main()
 {

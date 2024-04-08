@@ -24,25 +24,35 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    string str;
-    cin >> str;
-    map<char, int> mp;
-    for (int i = 0; i < str.length(); i++)
+    int n;
+    cin >> n;
+    n = n * 2;
+    char arr[n][n];
+    for (int i = 0; i < n; i++)
     {
-        mp[str[i]]++;
-    }
-    int mx = 0;
-    for (auto it : mp)
-    {
-        if (it.second > mx)
-            mx = it.second;
-    }
-    for (auto it : mp)
-    {
-        if (mx == it.second)
+        for (int j = 0; j < n; j++)
         {
-            cout << it.first << endl;
+            arr[i][j] = 'o';
         }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            int sum = i / 2 + j / 2;
+            if (sum % 2 == 0)
+                arr[i][j] = '#';
+            else
+                arr[i][j] = '.';
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << arr[i][j];
+        }
+        cout << endl;
     }
 }
 int32_t main()

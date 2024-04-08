@@ -24,25 +24,21 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    string str;
-    cin >> str;
-    map<char, int> mp;
-    for (int i = 0; i < str.length(); i++)
+    int a, b, n, S;
+    cin >> a >> b >> n >> S;
+    int max_n_coins = min(S / n, a);
+
+    int remaining_total = S - (max_n_coins * n);
+
+    int num_b_coins = min(remaining_total, b);
+
+    if (max_n_coins * n + num_b_coins == S)
     {
-        mp[str[i]]++;
+        cout << "YES" << endl;
     }
-    int mx = 0;
-    for (auto it : mp)
+    else
     {
-        if (it.second > mx)
-            mx = it.second;
-    }
-    for (auto it : mp)
-    {
-        if (mx == it.second)
-        {
-            cout << it.first << endl;
-        }
+        cout << "NO" << endl;
     }
 }
 int32_t main()

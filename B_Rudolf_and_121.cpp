@@ -24,26 +24,33 @@ int lcm(int a, int b)
 }
 void solve()
 {
-    string str;
-    cin >> str;
-    map<char, int> mp;
-    for (int i = 0; i < str.length(); i++)
+    int n;
+    cin >> n;
+    int arr[n];
+    vector<int> v;
+    for (int i = 0; i < n; i++)
     {
-        mp[str[i]]++;
+        cin >> arr[i];
+        v.pb(arr[i]);
     }
-    int mx = 0;
-    for (auto it : mp)
+    bool ans = true;
+    for (int i = 0; i < n - 2; i++)
     {
-        if (it.second > mx)
-            mx = it.second;
+        int j = v[i];
+        if (j < 0)
+            break;
+        v[i] = 0;
+        v[i + 1] = v[i + 1] - 2 * j;
+        v[i + 2] -= j;
     }
-    for (auto it : mp)
+    for (auto it : v)
     {
-        if (mx == it.second)
-        {
-            cout << it.first << endl;
-        }
+        if (it != 0){
+            ans = false;
+        break;}
     }
+    if(ans)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 }
 int32_t main()
 {
